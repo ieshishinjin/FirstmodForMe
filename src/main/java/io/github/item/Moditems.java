@@ -1,12 +1,11 @@
-package io.github.firstmod.item;
+package io.github.item;
 
-import io.github.firstmod.firstmod;
+import io.github.firstmod;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.openjdk.nashorn.internal.ir.Block;
 
 public class Moditems {
     public static final DeferredRegister<Item> Items=

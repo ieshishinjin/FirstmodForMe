@@ -1,15 +1,12 @@
-package io.github.firstmod;
+package io.github;
 
 import com.mojang.logging.LogUtils;
-import io.github.firstmod.block.ModBlocks;
-import io.github.firstmod.item.ModCreativeModTab;
-import io.github.firstmod.item.Moditems;
+import io.github.block.ModBlocks;
+import io.github.item.ModCreativeModTab;
+import io.github.item.Moditems;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -17,7 +14,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.IModBusEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -29,11 +25,11 @@ import org.slf4j.Logger;
 public class firstmod
 {
     // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "firstmod";
+    public static final String MOD_ID = "item";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    // Creates a creative tab with the id "examplemod:example_tab" for the firstmod item, that is placed after the combat tab
+    // Creates a creative tab with the id "examplemod:example_tab" for the item item, that is placed after the combat tab
 
     public firstmod(FMLJavaModLoadingContext context)
     {
@@ -72,7 +68,7 @@ public class firstmod
 
     }
 
-    // Add the firstmod block item to the building blocks tab
+    // Add the item block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
 //        if(event.getTabKey()== CreativeModeTabs.INGREDIENTS)

@@ -1,7 +1,7 @@
-package io.github.firstmod.block;
+package io.github.block;
 
-import io.github.firstmod.firstmod;
-import io.github.firstmod.item.Moditems;
+import io.github.firstmod;
+import io.github.item.Moditems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
