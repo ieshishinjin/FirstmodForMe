@@ -17,7 +17,7 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, firstmod.MOD_ID);
     public static final RegistryObject<Block> Kingdom =
-            registerBlock("Kingdom",()-> new Block(BlockBehaviour.Properties.of().strength(1.5F,3.0F)));
+            registerBlock("kingdom",()-> new Block(BlockBehaviour.Properties.of().strength(1.5F,3.0F)));
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
         Moditems.Items.register(name,()-> new BlockItem(block.get(),new Item.Properties()));
     }
