@@ -3,5 +3,7 @@
   "item.firstmod.king": "King",
   "item.firstmod.princess.prince": "Prince",
 
+  "block.firstmod.kingdom" : "Kingdom",
+
   "itemGrop.first_tab" : "FirstMod_Tab"
 }
