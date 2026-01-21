@@ -4,6 +4,7 @@ plugins {
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id 'org.spongepowered.mixin' version '0.7.+'
 }
 
 version = mod_version
@@ -115,6 +116,18 @@ repositories {
     // flatDir {
     //     dir 'libs'
     // }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        forRepositories(fg.repository) // Only add this if you're using ForgeGradle, otherwise remove this line
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
 }
 
 dependencies {
@@ -124,7 +137,11 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:1.20.4-49.2.0"
-
+    annotationProcessor "org.spongepowered:mixin:+:processor"
+    implementation fg.deobf("maven.modrinth:minecraft-transit-railway:FORGE-4.0.2+1.20.4")
+    /*implementation(fg.deobf("ziyue.filters:filters-forge:${filterAPIVersion}+${minecraftVersion}")) {
+        exclude(group: "net.minecraftforge")
+    }*/
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
@@ -139,6 +156,7 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -220,3 +238,30 @@ sourceSets.each {
     it.output.resourcesDir = dir
     it.java.destinationDirectory = dir
 }
+
+
+
+
+//repositories {
+//    mavenCentral()
+//    maven { url = "https://maven.minecraftforge.net" }
+//    maven { url = "https://www.cursemaven.com" }
+//    repositories {
+//        maven {
+//            url "https://cursemaven.com"
+//            content { includeGroup "curse.maven" }
+//        }
+//    }
+//
+//    // 添加这些开发仓库获取映射版本
+//    maven { url = "https://maven.parchmentmc.org" }  // Parchment 映射
+//    maven { url = "https://repo.spongepowered.org/repository/maven-public/" }  // Sponge
+//    maven { url = "https://maven.jonafanho.com" }  // MTR 开发仓库
+//}
+//
+//dependencies {
+//    implementation fg.deobf("curse.maven:minecraft-transit-railway-266707:7121933")
+//}
+
+
+

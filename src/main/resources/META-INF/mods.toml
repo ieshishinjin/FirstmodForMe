@@ -71,3 +71,12 @@ side="BOTH"
 # stop your mod loading on the server for example.
 #[features.${mod_id}]
 #openGLVersion="[3.2,)"
+
+# 在末尾添加如下内容
+[[dependencies.firstmod]]
+modId = "mtr"
+mandatory = true
+versionRange = "4.0.0," # 无上限则可以留空
+ordering = "NONE"
+side = "BOTH"
+# 各项含义请参照原文件内的注释
